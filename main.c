@@ -16,14 +16,9 @@ void funcE(int& a) {
 }
 void LoopFunction(bool a, int num)
 {
-    
+    void (*func)(int&) = a ? funcB : funcC;
     for(int i = 0; i < 1000; ++i) {
-    	if(a) {
-    		funcB(num);
-    	}
-    	else {
-    		funcC(num);
-    	}
+        func(num);
         funcD(num);
         funcE(num);
     }
